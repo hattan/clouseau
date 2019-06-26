@@ -1,3 +1,10 @@
+#Terraform
+**/terraform.tfvars
+**/*.tfplan
+**/*.tfstate.*
+**/*.tfstate
+**/.terraform
+
 # Logs
 logs
 *.log
