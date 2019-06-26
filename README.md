@@ -5,7 +5,7 @@ This project is a demonstration of creating an Azure Search index from json data
 This project was named after the fictional character [Hercule Poirot](https://en.wikipedia.org/wiki/Hercule_Poirot)
 
 ### Sample Data
-This demo uses fake data stored in data.json. The file contains a json array movie names and descriptions *.
+This demo uses fake data stored in [data.json](./data.json). The file contains a json array movie names and descriptions *.
 
 #### Description of Properites:
 |Column              | Purpose                                                                            |
