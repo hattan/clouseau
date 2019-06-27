@@ -34,7 +34,7 @@ Resources require an Azure Subscription and keys set up. You can create an [Azur
 ### Installation
 The infrastructure folder contains terraform files that can be used to spin up the two cognitive services used by this project. 
 
-* Ensure that Terraform, Azure CLI and Azure Cuntions Core tools are installed locally or use the [Azure Cloud Shell](https://shell.azure.com) (the cloud shell installs these tools by default.)
+* Ensure that Terraform, Azure CLI and Azure Functions Core tools are installed locally or use the [Azure Cloud Shell](https://shell.azure.com) (the cloud shell installs these tools by default.)
 * (if local) invoke ```az login``
 * Navigate to the infrastructure repo of this folder.
 * run ``` terraform init ``` to initialize terraform 
