@@ -31,15 +31,21 @@ This demo relies on the following Azure services:
 
 Resources require an Azure Subscription and keys set up. You can create an [Azure Free Account](https://azure.microsoft.com/en-us/free/) to try this demo.
 
-### Infrastructure
+### Installation
 The infrastructure folder contains terraform files that can be used to spin up the two cognitive services used by this project. 
 
-* Ensure that Terraform and the Azure CLI tools are installed locally or use the [Azure Cloud Shell](https://shell.azure.com) (the cloud shell installs these tools by default.)
+* Ensure that Terraform, Azure CLI and Azure Cuntions Core tools are installed locally or use the [Azure Cloud Shell](https://shell.azure.com) (the cloud shell installs these tools by default.)
 * (if local) invoke ```az login``
 * Navigate to the infrastructure repo of this folder.
 * run ``` terraform init ``` to initialize terraform 
 * run ``` terraform plan --out=plan.tfplan ``` 
 * run ``` terraform apply "plan.tfplan" ```
+
+In the output log note the following:
+
+*  Invoke url - This the azure function url, including the unique key. This key changes with every deployment.
+* data-storage-connection-string - This connection string will be used to create the Azure Search Index.
+* data-search-service-primary-key - This value is used by the function app, and automatically added as an an app settings configuration value by the terraform files.
 
 
 ### References
