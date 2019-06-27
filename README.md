@@ -47,6 +47,8 @@ In the output log note the following:
 * data-storage-connection-string - This connection string will be used to create the Azure Search Index.
 * data-search-service-primary-key - This value is used by the function app, and automatically added as an an app settings configuration value by the terraform files.
 
+### Create the Azure Search Index from data.json
+* Follow instructions from [AzureSearchImport.md](./AzureSearchimport.md)
 
 ### References
 
