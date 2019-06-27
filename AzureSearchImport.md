@@ -57,7 +57,7 @@
 
 ## Test the Azure Function.
 * Grab the url from the terraform output log. If you do not have the url handy you can get it via the following sources:
-  * func azure functionapp list-functions azuresearchdemofn --show-key
+  * in the cli, invoke "func azure functionapp list-functions azuresearchdemofn --show-key"
   
   or 
 
