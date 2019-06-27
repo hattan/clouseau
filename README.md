@@ -48,7 +48,7 @@ In the output log note the following:
 * data-search-service-primary-key - This value is used by the function app, and automatically added as an an app settings configuration value by the terraform files.
 
 ### Create the Azure Search Index from data.json
-* Follow instructions from [AzureSearchImport.md](./AzureSearchimport.md)
+* Follow instructions from [AzureSearchImport.md](./AzureSearchImport.md)
 
 ### References
 
