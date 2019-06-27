@@ -1,17 +1,17 @@
 provider "azurerm" {
   version = "=1.28.0"
-  subscription_id = "${var.subscription_id}"
+  subscription_id = var.subscription_id
 }
 
 resource "azurerm_resource_group" "searchdemo-rg" {
-  name     = "${var.resource_group_name}"
-  location = "${var.resource_group_location}"
+  name     = var.resource_group_name 
+  location = var.resource_group_location
 }
 
 resource "azurerm_storage_account" "searchdemo-store" {
   name                     = "${azurerm_resource_group.searchdemo-rg.name}store"
-  resource_group_name      = "${azurerm_resource_group.searchdemo-rg.name}"
-  location                 = "${azurerm_resource_group.searchdemo-rg.location}"
+  resource_group_name      = azurerm_resource_group.searchdemo-rg.name
+  location                 = azurerm_resource_group.searchdemo-rg.location
   account_kind             = "StorageV2"
   account_tier             = "Standard"
   account_replication_type = "LRS"
@@ -19,22 +19,22 @@ resource "azurerm_storage_account" "searchdemo-store" {
 
 resource "azurerm_storage_container" "searchdemo-store-container" {
   name                  = "data"
-  resource_group_name   = "${azurerm_resource_group.searchdemo-rg.name}"
-  storage_account_name  = "${azurerm_storage_account.searchdemo-store.name}"
+  resource_group_name   = azurerm_resource_group.searchdemo-rg.name
+  storage_account_name  = azurerm_storage_account.searchdemo-store.name
   container_access_type = "private"
 }
 
 resource "azurerm_search_service" "searchdemo-search" {
   name                = "${azurerm_resource_group.searchdemo-rg.name}search"
-  resource_group_name = "${azurerm_resource_group.searchdemo-rg.name}"
-  location            = "${azurerm_resource_group.searchdemo-rg.location}"
+  resource_group_name = azurerm_resource_group.searchdemo-rg.name
+  location            = azurerm_resource_group.searchdemo-rg.location
   sku                 = "standard"
 }
 
 resource "azurerm_storage_account" "searchdemo-function-store" {
   name                     = "${azurerm_resource_group.searchdemo-rg.name}fnsa"
-  resource_group_name      = "${azurerm_resource_group.searchdemo-rg.name}"
-  location                 = "${azurerm_resource_group.searchdemo-rg.location}"
+  resource_group_name      = azurerm_resource_group.searchdemo-rg.name
+  location                 = azurerm_resource_group.searchdemo-rg.location
   account_kind             = "StorageV2"
   account_tier             = "Standard"
   account_replication_type = "LRS"
@@ -42,8 +42,8 @@ resource "azurerm_storage_account" "searchdemo-function-store" {
 
 resource "azurerm_app_service_plan" "searchdemo-function-plan" {
   name                = "${azurerm_resource_group.searchdemo-rg.name}fnplan"
-  location            = "${azurerm_resource_group.searchdemo-rg.location}"
-  resource_group_name = "${azurerm_resource_group.searchdemo-rg.name}"
+  location            = azurerm_resource_group.searchdemo-rg.location
+  resource_group_name = azurerm_resource_group.searchdemo-rg.name
 
   sku {
     tier = "Standard"
@@ -53,10 +53,10 @@ resource "azurerm_app_service_plan" "searchdemo-function-plan" {
 
 resource "azurerm_function_app" "searchdemo-function" {
   name                      = "${azurerm_resource_group.searchdemo-rg.name}fn"
-  location                  = "${azurerm_resource_group.searchdemo-rg.location}"
-  resource_group_name       = "${azurerm_resource_group.searchdemo-rg.name}"
-  app_service_plan_id       = "${azurerm_app_service_plan.searchdemo-function-plan.id}"
-  storage_connection_string = "${azurerm_storage_account.searchdemo-function-store.primary_connection_string}"
+  location                  = azurerm_resource_group.searchdemo-rg.location
+  resource_group_name       = azurerm_resource_group.searchdemo-rg.name
+  app_service_plan_id       = azurerm_app_service_plan.searchdemo-function-plan.id
+  storage_connection_string = azurerm_storage_account.searchdemo-function-store.primary_connection_string
   version                   = "~2"
   app_settings = {
     WEBSITE_NODE_DEFAULT_VERSION = "10.14.1"
