@@ -56,9 +56,18 @@
 ![Search Results](./img/search9.png)  
 
 ## Test the Azure Function.
-* Grab the url from the terraform output log.
-* Open a new browser tab and go paste that url. Add &searchTerm=movie to the end of the url.
+* Grab the url from the terraform output log. If you do not have the url handy you can get it via the following sources:
+  * func azure functionapp list-functions azuresearchdemofn --show-key
+  
+  or 
+
+  * Navigate to the function app in the Azure Portal
+  * Select the "Find function"
+  * Click "Get function Url"
+
+* Open a new browser tab and go paste the function url. Add &searchTerm=movie to the end of the url.
 * You should see a json object with data from Azure search.
+
 
 ![Search Results](./img/search10.png)  
 
