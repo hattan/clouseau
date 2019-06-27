@@ -19,6 +19,7 @@ This demo uses fake data stored in [data.json](./data.json). The file contains a
 ### Requirements
 * [NodeJs](https://nodejs.org/en/)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2)
 * [Terraform](https://www.terraform.io/downloads.html) 
 
 ### Create the infrastructure needed.
@@ -46,6 +47,7 @@ The infrastructure folder contains terraform files that can be used to spin up t
 * [Speech Search Documentation](https://docs.microsoft.com/en-us/azure/search/)
 * [Azure Search - Key Phrase extraction](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-keyphrases)
 * [Azure Functions Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
+* [Create your first function from the command line](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli)
 * [Azure Functions CORS](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings#cors)
 * [Terraform Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html)
 * [Azure Extensions for VSCode](https://code.visualstudio.com/docs/azure/extensions)

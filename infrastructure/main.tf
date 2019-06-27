@@ -57,12 +57,25 @@ resource "azurerm_function_app" "searchdemo-function" {
   resource_group_name       = "${azurerm_resource_group.searchdemo-rg.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.searchdemo-function-plan.id}"
   storage_connection_string = "${azurerm_storage_account.searchdemo-function-store.primary_connection_string}"
+  version                   = "~2"
+  app_settings {
+    "WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1",
+    "SEARCH_CONFIG_SERVICE_NAME"   = "${azurerm_search_service.searchdemo-search.name}",
+    "SEARCH_CONFIG_INDEX_NAME"     = "azureblob-index",
+    "SEARCH_CONFIG_PRIMARY_KEY"    = "${azurerm_search_service.searchdemo-search.primary_key}"
+  }
 }
-
 
 resource "null_resource" "configure-functions-cors" {
   provisioner "local-exec" {
     command = "az functionapp cors add -n ${azurerm_function_app.searchdemo-function.name} -g ${azurerm_resource_group.searchdemo-rg.name} --allowed-origins *"
+  }
+}
+
+resource "null_resource" "deploy-function-source" {
+  provisioner "local-exec" {
+    working_dir = "../FunctionApp",
+    command = "func azure functionapp publish  ${azurerm_function_app.searchdemo-function.name}"
   }
 }
 

@@ -1,0 +1,13 @@
+{
+  "name": "azuresearchdemo",
+  "version": "1.0.0",
+  "description": "An azure function used in the Azure Search Demo",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "Hattan Shobokshi",
+  "dependencies": {
+    "azure-search-client": "^3.1.5",
+    "stopword": "^0.2.4"
+  }
+}

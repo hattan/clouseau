@@ -5,6 +5,8 @@
 **/*.tfstate
 **/.terraform
 
+.vscode
+
 # Logs
 logs
 *.log
